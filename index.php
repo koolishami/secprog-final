@@ -6,7 +6,7 @@ session_start(['cookie_httponly' => true]);
 // If session shows user is already logged in, redirect to main page
 if (isset($_SESSION['login'])) {
 	if ($_SESSION['login']) {
-		header('Location:main.php');
+		header('Location:check_otp.php');
 	}
 }
 
@@ -69,7 +69,7 @@ if (isset($_SESSION['login'])) {
 					$_SESSION['user_agent'] = $_SERVER['HTTP_USER_AGENT'];
 				}
 
-				header('Location:main.php');
+				header('Location:check_otp.php');
 			} else {
 				$_SESSION['login'] = false;
 			}
@@ -101,14 +101,6 @@ if (isset($_SESSION['login'])) {
 						</span>
 						<input class="form-control" type="password" name="password" placeholder="Password">
 					</div>
-
-					<div class="form-check">
-						<input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-						<label class="form-check-label" for="flexCheckChecked">
-							Keep me signed in for the next 7 days
-						</label>
-					</div>
-
 					<br>
 
 					<?php
